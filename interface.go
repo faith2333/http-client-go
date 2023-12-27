@@ -15,6 +15,8 @@ type Interface interface {
 	AddHeader(key, value string) Interface
 	// WithContentTypeJson add specify content as application/json
 	WithContentTypeJson() Interface
+	// WithAuthorization add Authorization header to http client
+	WithAuthorization(authInfo string) Interface
 	// WithHeaders specify header which will replace the header your added before.
 	WithHeaders(headers map[string]string) Interface
 	// WithBody specify body which will be used in http request

@@ -94,6 +94,16 @@ func (d *defaultHttpClient) WithContentTypeJson() Interface {
 	return d
 }
 
+func (d *defaultHttpClient) WithAuthorization(authInfo string) Interface {
+	if d.header == nil {
+		d.header = map[string]string{}
+	}
+
+	d.header[HeaderAuthorization] = authInfo
+
+	return d
+}
+
 func (d *defaultHttpClient) Do(ctx context.Context) Interface {
 	d.err = nil
 
