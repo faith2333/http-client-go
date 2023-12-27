@@ -4,4 +4,4 @@ The http client for golang.
 
 **TODO**
 
-Complete the usage docs
+*Complete the usage docs*
