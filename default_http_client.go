@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"fmt"
 	"github.com/pkg/errors"
 	"io"
 	"net/http"
@@ -147,7 +148,7 @@ func (d *defaultHttpClient) Do(ctx context.Context) Interface {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
-		d.err = errors.New("Response status code not 200")
+		d.err = errors.New(fmt.Sprintf("Response status code not 200, is %v", resp.StatusCode))
 		return d
 	}
 
