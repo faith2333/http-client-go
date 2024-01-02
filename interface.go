@@ -35,6 +35,13 @@ type Interface interface {
 	Error() error
 }
 
-func NewDefaultClient() Interface {
-	return &defaultHttpClient{}
+type Option func(p Interface)
+
+func NewDefaultClient(options ...Option) Interface {
+	d := &defaultHttpClient{}
+	for _, op := range options {
+		op(d)
+	}
+
+	return d
 }
