@@ -14,7 +14,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestDefaultHttpClient_Do(t *testing.T) {
-	resp, err := client.WithContentTypeJson().WithHost("www.baidu.com").
+	resp, err := client.WithContentTypeJson().WithHost("https://www.baidu.com").
 		WithURL("/search").WithMethod(MethodGET).Do(context.Background()).RespBytes()
 	if err != nil {
 		t.Logf("test failed: %s", err.Error())

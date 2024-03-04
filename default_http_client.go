@@ -208,6 +208,9 @@ func (d *defaultHttpClient) validate() error {
 		return ErrHostIsEmpty
 	}
 
+	d.host = strings.TrimPrefix(d.host, "https://")
+	d.host = strings.TrimPrefix(d.host, "http://")
+
 	if d.url == "" {
 		return ErrURLIsEmpty
 	}
